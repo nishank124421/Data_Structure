@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrackBus — Reviews</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/workspace/reviews.css">
+</head>
+<body>
+  <aside class="sidebar" aria-label="Primary">
+    <div class="sidebar__brand">🚌 TrackBus</div>
+    <nav class="sidebar__nav">
+      <a href="#" class="nav__item">Dashboard</a>
+      <a href="#" class="nav__item">Buses</a>
+      <a href="#" class="nav__item">Drivers</a>
+      <a href="#" class="nav__item">Schedule</a>
+      <a href="#" class="nav__item">Report</a>
+      <a href="#" class="nav__item nav__item--active" aria-current="page">Reviews</a>
+      <a href="#" class="nav__item">Book Ticket</a>
+      <a href="#" class="nav__item">Settings</a>
+    </nav>
+    <a href="#" class="sidebar__signout">Sign out</a>
+  </aside>
+
+  <main class="main">
+    <header class="page-header">
+      <div class="page-header__copy">
+        <h1 class="page-title">Bus Reviews</h1>
+        <p class="page-subtitle">Share your experience and read feedback from other passengers.</p>
+      </div>
+    </header>
+
+    <section class="stats" aria-label="Review statistics">
+      <div class="stat">
+        <div class="stat__value" aria-label="Average rating">4.2</div>
+        <div class="stat__label">Average Rating</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value" aria-label="Total reviews">1,247</div>
+        <div class="stat__label">Total Reviews</div>
+      </div>
+      <div class="stat">
+        <div class="stat__value" aria-label="Positive reviews">89%</div>
+        <div class="stat__label">Positive Reviews</div>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="write-review-heading">
+      <h2 id="write-review-heading" class="panel__title">Write a Review</h2>
+      <form class="form" aria-describedby="review-help" novalidate>
+        <div class="form__row">
+          <div class="form__group">
+            <label for="route">Select route</label>
+            <select id="route" name="route" required>
+              <option value="" selected>Choose a route</option>
+              <option value="HR26">HR26 — Chandigarh to Ambala</option>
+              <option value="PB21">PB21 — Ludhiana to Patiala</option>
+              <option value="PB07">PB07 — Amritsar to Jalandhar</option>
+            </select>
+          </div>
+          <div class="form__group">
+            <fieldset class="rating" aria-label="Rating out of 5">
+              <legend>Rating</legend>
+              <div class="stars" role="radiogroup" aria-label="Star rating">
+                <input type="radio" id="rating-5" name="rating" value="5">
+                <label for="rating-5" aria-label="5 stars">★</label>
+                <input type="radio" id="rating-4" name="rating" value="4">
+                <label for="rating-4" aria-label="4 stars">★</label>
+                <input type="radio" id="rating-3" name="rating" value="3">
+                <label for="rating-3" aria-label="3 stars">★</label>
+                <input type="radio" id="rating-2" name="rating" value="2">
+                <label for="rating-2" aria-label="2 stars">★</label>
+                <input type="radio" id="rating-1" name="rating" value="1">
+                <label for="rating-1" aria-label="1 star">★</label>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__group form__group--full">
+            <label for="review">Your review</label>
+            <textarea id="review" name="review" rows="4" placeholder="Share details about punctuality, comfort, cleanliness, and staff behavior" required></textarea>
+          </div>
+        </div>
+        <div class="form__row">
+          <div class="form__group">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" placeholder="e.g., Rajesh Kumar" required>
+          </div>
+          <div class="form__group">
+            <label for="date">Date of travel</label>
+            <input id="date" name="date" type="date" required>
+          </div>
+        </div>
+        <div class="form__actions">
+          <button type="submit" class="btn btn--primary">Submit review</button>
+          <p id="review-help" class="form__help">By submitting, you agree to our terms of use.</p>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="recent-reviews-heading">
+      <div class="panel__header">
+        <h2 id="recent-reviews-heading" class="panel__title">Recent Reviews</h2>
+        <label class="sort">
+          <span class="visually-hidden">Sort reviews</span>
+          <select aria-label="Sort reviews">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="highest">Highest rating</option>
+            <option value="lowest">Lowest rating</option>
+          </select>
+        </label>
+      </div>
+
+      <ul class="reviews" aria-live="polite">
+        <li class="review">
+          <div class="review__top">
+            <span class="badge">HR26</span>
+            <span class="stars stars--display" aria-label="Rated 5 out of 5">★★★★★</span>
+          </div>
+          <p class="review__text">Excellent service! The bus was clean, comfortable, and arrived exactly on time. The driver was professional and the journey was smooth.</p>
+          <div class="review__meta">
+            <span class="review__author">Rajesh Kumar</span>
+            <time datetime="2025-09-06">2 days ago</time>
+          </div>
+        </li>
+
+        <li class="review">
+          <div class="review__top">
+            <span class="badge">PB21</span>
+            <span class="stars stars--display" aria-label="Rated 4 out of 5">★★★★☆</span>
+          </div>
+          <p class="review__text">Good overall experience. Comfortable bus and helpful staff. There was a slight delay of about 10 minutes, but otherwise smooth.</p>
+          <div class="review__meta">
+            <span class="review__author">Priya Sharma</span>
+            <time datetime="2025-09-03">5 days ago</time>
+          </div>
+        </li>
+
+        <li class="review">
+          <div class="review__top">
+            <span class="badge">PB07</span>
+            <span class="stars stars--display" aria-label="Rated 3 out of 5">★★★☆☆</span>
+          </div>
+          <p class="review__text">Average service. The bus could be cleaner, and the journey took longer than expected due to traffic. The driver was friendly.</p>
+          <div class="review__meta">
+            <span class="review__author">Amit Singh</span>
+            <time datetime="2025-09-01">1 week ago</time>
+          </div>
+        </li>
+
+        <li class="review">
+          <div class="review__top">
+            <span class="badge">HR26</span>
+            <span class="stars stars--display" aria-label="Rated 5 out of 5">★★★★★</span>
+          </div>
+          <p class="review__text">Outstanding service! Spotless bus, very comfortable seats, and courteous driver. Will definitely use this service again.</p>
+          <div class="review__meta">
+            <span class="review__author">Sneha Patel</span>
+            <time datetime="2025-08-31">1 week ago</time>
+          </div>
+        </li>
+
+        <li class="review">
+          <div class="review__top">
+            <span class="badge">PB21</span>
+            <span class="stars stars--display" aria-label="Rated 5 out of 5">★★★★★</span>
+          </div>
+          <p class="review__text">Perfect journey! On time, clean, and comfortable. Staff was very helpful and the ride was smooth. Great value for money.</p>
+          <div class="review__meta">
+            <span class="review__author">Vikram Mehta</span>
+            <time datetime="2025-08-24">2 weeks ago</time>
+          </div>
+        </li>
+      </ul>
+
+      <div class="panel__footer">
+        <button type="button" class="btn btn--ghost">Load more reviews</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Minimal enhancement: keep selected state for rating stars
+    (function () {
+      var group = document.querySelector('.stars');
+      if (!group) return;
+      group.addEventListener('click', function (e) {
+        if (e.target.tagName.toLowerCase() === 'label') {
+          var forId = e.target.getAttribute('for');
+          var input = document.getElementById(forId);
+          if (input) input.checked = true;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
