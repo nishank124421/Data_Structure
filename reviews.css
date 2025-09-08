@@ -123,12 +123,12 @@ input:focus, select:focus, textarea:focus {
 .rating { border: 0; margin: 0; padding: 0; }
 .rating legend { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
 .stars {
-  display: inline-grid;
-  grid-auto-flow: column;
+  display: inline-flex;
+  flex-direction: row-reverse;
   gap: 6px;
   user-select: none;
 }
-.stars input { display: none; }
+.stars input { position: absolute; opacity: 0; pointer-events: none; }
 .stars label {
   width: 34px;
   height: 34px;
@@ -142,9 +142,13 @@ input:focus, select:focus, textarea:focus {
   font-size: 18px;
   color: #334155;
 }
-.stars input:checked ~ label,
+/* Fill selected and all preceding stars */
+.stars input:checked ~ label { color: #fbbf24; border-color: #f59e0b; box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25); }
+/* Hover preview (keyboard + mouse) */
 .stars label:hover,
 .stars label:focus { color: #fbbf24; border-color: #f59e0b; box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25); }
+/* When hovering a star, also fill stars to its right due to row-reverse */
+.stars label:hover ~ label { color: #fbbf24; border-color: #f59e0b; }
 
 /* Reviews */
 .reviews { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }

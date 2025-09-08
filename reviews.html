@@ -183,20 +183,5 @@
       </div>
     </section>
   </main>
-
-  <script>
-    // Minimal enhancement: keep selected state for rating stars
-    (function () {
-      var group = document.querySelector('.stars');
-      if (!group) return;
-      group.addEventListener('click', function (e) {
-        if (e.target.tagName.toLowerCase() === 'label') {
-          var forId = e.target.getAttribute('for');
-          var input = document.getElementById(forId);
-          if (input) input.checked = true;
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
